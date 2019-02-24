@@ -94,19 +94,19 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _test__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./test */ \"./js/test.js\");\n// Global app controller\n\nvar x = 33;\nconsole.log(\"Variable x is \".concat(x));\nconsole.log(_test__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n//# sourceURL=webpack:///./js/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _models_Search__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./models/Search */ \"./js/models/Search.js\");\n\nconsole.log(_models_Search__WEBPACK_IMPORTED_MODULE_0__[\"default\"]);\n\n//# sourceURL=webpack:///./js/index.js?");
 
 /***/ }),
 
-/***/ "./js/test.js":
-/*!********************!*\
-  !*** ./js/test.js ***!
-  \********************/
+/***/ "./js/models/Search.js":
+/*!*****************************!*\
+  !*** ./js/models/Search.js ***!
+  \*****************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nconsole.log(\"hi\");\n/* harmony default export */ __webpack_exports__[\"default\"] = (90);\n\n//# sourceURL=webpack:///./js/test.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = ('I am a nexported string.');\n\n//# sourceURL=webpack:///./js/models/Search.js?");
 
 /***/ }),
 
