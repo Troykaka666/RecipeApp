@@ -5,7 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "axios": "^0.18.0",
-    "babel-loader": "^8.0.5"
+    "babel-loader": "^8.0.5",
+    "fractional": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.3.3",
