@@ -1,9 +1,11 @@
 import search from './models/Search';
 import Recipe from './models/Recipe';
 import List from './models/List';
+import Likes from './models/Likes';
 import * as searchView from './views/searchView';
 import * as recipeView from './views/recipeView.js';
 import * as listView from './views/listView';
+// import * as likesView from './views/likesView';
 import { elements, renderLoader, clearLoader } from './views/base';
 // import { listenerCount } from 'cluster';
 
@@ -16,7 +18,6 @@ import { elements, renderLoader, clearLoader } from './views/base';
  */
 
 const state ={};
-window.state = state;
 
 /**
  * 
@@ -40,7 +41,6 @@ const controlSearch = async () => {
                 
             //Render results on UI
             clearLoader();
-            searchRes = state.search.result;
             searchView.renderResults(state.search.result);
         }catch(e){
             console.log(e);
@@ -148,6 +148,40 @@ elements.shopping.addEventListener('click', e=>{
     }
 });
 
+/**
+ * Like CONTROLLER
+ */
+const controlLike = () =>{
+    if(!state.likes) state.likes = new Likes();
+    const currentID = state.recipe.id;
+
+    //User has not yet liked current recipe 
+    if(!state.likes.isLiked(currentID)){
+        //Add like to the state
+        const newLike = state.likes.addLike(
+            currentID,
+            state.recipe.title,
+            state.recipe.author,
+            state.recipe.img
+        );
+
+        //toggle the like button
+
+        //Add like to UI list 
+            console.log(state.likes);
+    //User has  yet liked current recipe 
+    }else{
+        //Remove like to the state
+        state.likes.deleteLike(currentID);
+
+        //toggle the like button
+
+        //Remove like to UI list 
+
+    }
+}
+
+
 
 //handling recipe button clicks
 elements.recipe.addEventListener('click', e => {
@@ -162,7 +196,13 @@ elements.recipe.addEventListener('click', e => {
         state.recipe.updateServings('inc');
         recipeView.updateServingsIngredients(state.recipe);
     }else if(e.target.matches('.recipe__btn--add, .recipe__btn--add *')){
+        //aDD INGREDIENTS TO SHOPPING LIST 
+
+
         controlList();
+    }else if(e.target.matches('.recipe__love, .recipe__love *')){
+        //Like controller
+        controlLike();
     }
 });
 
