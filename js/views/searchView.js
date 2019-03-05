@@ -16,7 +16,7 @@ export const highlingtSelected = id => {
     resultsArr.forEach(el => {
         el.classList.remove('results__link--active');
     });
-    document.querySelector(`a[href*="${id}"]`).classList.add('results__link--active');
+    document.querySelector(`[href*="${id}"]`).classList.add('results__link--active');
 };
 
 /*
@@ -108,11 +108,19 @@ const renderButtons = (page, numResults, resPerPage) => {
 };   
 
 export const renderResults = (recipes, page=1, resPerPage = 10) => { 
-    //render results of current page
-    const start = (page - 1) * resPerPage;
-    const end = page * resPerPage;
-    recipes.slice(start, end).forEach(renderRecipe);
 
-    //render pagination buttons
-    renderButtons(page, recipes.length, resPerPage);
+    recipes.forEach(renderRecipe);
+    // //render results of current page
+    // const start = (page - 1) * resPerPage;
+    // const end = page * resPerPage;
+    // if(recipes){
+    //     try{
+    //         recipes.slice(start, end).forEach(renderRecipe);
+
+    //           //render pagination buttons
+    //         renderButtons(page, recipes.length, resPerPage);
+    //     }catch(er){
+    //         console.log(er);
+    //     }
+    // }
 };

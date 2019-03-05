@@ -6,12 +6,18 @@ export default class Like{
     addLike(id, title, author, img){
        const like = {id, title, author, img};
        this.likes.push(like);
+
+       //Parist data in localStrorage
+
        return like; 
     }
 
     deleteLike(id){
         const index = this.likes.findIndex(el => el.id === id);
         this.likes.splice(index, 1)
+
+        //Parist data in localStrorage
+        
     }
 
     isLiked(id){
